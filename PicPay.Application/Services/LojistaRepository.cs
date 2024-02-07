@@ -22,7 +22,7 @@ namespace PicPay.Application.Services
             _mapper = mapper;
         }
 
-        public async Task Register(LojistaDTO lojistaDTO)
+        public async Task<LojistaDTO> Register(LojistaDTO lojistaDTO)
         {
             bool emailOuCpfExistem = await _repository.Existe(u => u.email == lojistaDTO.email || u.cpf == lojistaDTO.cpf || u.cnpj == lojistaDTO.cnpj);
             if (emailOuCpfExistem == true)
@@ -33,6 +33,11 @@ namespace PicPay.Application.Services
             {
                 var lojistaModel = _mapper.Map<LojistaModel>(lojistaDTO);
                 await _repository.Cadastro(lojistaModel);
+
+                var resultado = _mapper.Map<LojistaDTO>(lojistaModel);
+
+                return resultado;
+
             }
         }
     }

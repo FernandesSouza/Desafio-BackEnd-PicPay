@@ -9,7 +9,6 @@ namespace PicPay.Application.DTOs
 {
     public class LojistaDTO
     {
-
         public Guid id_lojista { get; set; }
         public string? nomeCompleto { get; set; }
         public string? cpf { get; set; }

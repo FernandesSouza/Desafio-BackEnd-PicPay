@@ -9,7 +9,7 @@ namespace PicPay.Application.Interfaces
 {
     public interface ILojistaRepository
     {
-        Task Register(LojistaDTO lojistaDTO);
+        Task<LojistaDTO> Register(LojistaDTO lojistaDTO);
 
     }
 }

@@ -33,6 +33,57 @@ namespace PicPay.Application.Services
             || item.email == identificador 
             || item.telefone == identificador);
         }
+
+        public async Task<bool> EstornarPix(Guid idTransacao)
+        {
+            try
+            {
+                var pixTransacao = await _context.transferenciaModels.SingleOrDefaultAsync(item => item.dd == idTransacao);
+
+                if (pixTransacao == null)
+                {
+                    return false;
+                }
+                var remetente = await _context.usuarioModels.SingleOrDefaultAsync(user => user.cpf == pixTransacao.info_remetente);
+                var destinatario = await _context.usuarioModels.SingleOrDefaultAsync(user => user.cpf == pixTransacao.info_destinatario);
+                var destinatarioQuery = await _context.lojistaModels.SingleOrDefaultAsync(user => user.cpf == pixTransacao.info_destinatario);
+
+                bool autorizador = await _baseRepository.Autorizador();
+
+                if (autorizador == true)
+                {
+                    remetente.saldo += pixTransacao.valor;
+                     _context.usuarioModels.Update(remetente);
+
+                    if (destinatario is UsuarioModel)
+                    {
+                        destinatario.saldo -= pixTransacao.valor;
+                         _context.usuarioModels.Update(destinatario);
+                    }
+                    else if (destinatarioQuery is LojistaModel)
+                    {
+                        destinatarioQuery.saldo -= pixTransacao.valor;
+                         _context.lojistaModels.Update(destinatarioQuery);
+                    }
+                    else
+                    {
+                        Console.WriteLine("PROBLEMA COM DESTINATARIO");
+                        return false;
+                    }
+
+                    await _context.SaveChangesAsync();
+                    return true;
+                }
+
+                return false;
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"Erro em EstornarPix: {ex.Message}");
+                return false;
+            }
+        }
         public async Task<TransferenciaModel> Pix(string remetente, string destinatario, decimal valor, TransferenciaModel transferenciaModel)
         {
                 bool autorizado = await _baseRepository.Autorizador();

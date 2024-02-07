@@ -30,7 +30,7 @@ namespace PicPay.Application.Services
 
         }
 
-        public async Task Register(UsuarioDTO usuarioDTO)
+        public async Task<UsuarioDTO> Register(UsuarioDTO usuarioDTO)
         {
             bool emailOuCpfExistem = await _repository.Existe(u => u.email == usuarioDTO.email && u.cpf == usuarioDTO.cpf);
             if(emailOuCpfExistem == true) {
@@ -41,7 +41,15 @@ namespace PicPay.Application.Services
             {
                 var tarefaModel = _mapper.Map<UsuarioModel>(usuarioDTO);
                 await _repository.Cadastro(tarefaModel);
+
+                var resultado = _mapper.Map<UsuarioDTO>(tarefaModel);
+
+                return resultado;
             }
+
+            
         }
+
+       
     }
 }

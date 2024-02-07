@@ -11,10 +11,8 @@ namespace PicPay.Application.Interfaces
     {
         Task<TransferenciaModel> Pix(string remetente, string destinatario, decimal valor, TransferenciaModel transferenciaModel);
         Task<UsuarioModel> GetByIdentificador(string identificador);
-        Task<IEnumerable<TransferenciaModel>> GetAllTransferencias(string usuario);     
-
-      
-
+        Task<IEnumerable<TransferenciaModel>> GetAllTransferencias(string usuario);
+        Task<bool> EstornarPix(Guid idTransacao);
 
     }
 }

@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34316.72
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PicPay.API", "PicPay.API\PicPay.API.csproj", "{DDC8C437-CCBF-4F05-A54D-4DFE3CAFFE3F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PicPay.API", "PicPay.API\PicPay.API.csproj", "{DDC8C437-CCBF-4F05-A54D-4DFE3CAFFE3F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PicPay.Domain", "PicPay.DOMAIN\PicPay.Domain.csproj", "{61C16A56-FDB4-4A96-AC24-CDD7CE7163D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PicPay.Domain", "PicPay.DOMAIN\PicPay.Domain.csproj", "{61C16A56-FDB4-4A96-AC24-CDD7CE7163D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PicPay.Application", "PicPay.Application\PicPay.Application.csproj", "{60655F72-89DE-4944-B78D-6FCF6EAF5A15}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PicPay.Application", "PicPay.Application\PicPay.Application.csproj", "{60655F72-89DE-4944-B78D-6FCF6EAF5A15}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PicPay.Infra.Data", "PicPay.Infra.Data\PicPay.Infra.Data.csproj", "{BAF03237-A783-49B2-885F-D0644DBD5AD7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PicPay.Infra.Data", "PicPay.Infra.Data\PicPay.Infra.Data.csproj", "{BAF03237-A783-49B2-885F-D0644DBD5AD7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PicPay.Infra.Ioc", "PicPay.Infra.Ioc\PicPay.Infra.Ioc.csproj", "{45FDFFE6-5775-42DD-8954-B3886ABDDEAE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PicPay.Infra.Ioc", "PicPay.Infra.Ioc\PicPay.Infra.Ioc.csproj", "{45FDFFE6-5775-42DD-8954-B3886ABDDEAE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PicPay.Application.Testes", "PicPay.Application.Testes\PicPay.Application.Testes.csproj", "{B9828516-8185-4B5A-9C7E-6A79F236EC6E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{45FDFFE6-5775-42DD-8954-B3886ABDDEAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45FDFFE6-5775-42DD-8954-B3886ABDDEAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45FDFFE6-5775-42DD-8954-B3886ABDDEAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9828516-8185-4B5A-9C7E-6A79F236EC6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9828516-8185-4B5A-9C7E-6A79F236EC6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9828516-8185-4B5A-9C7E-6A79F236EC6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9828516-8185-4B5A-9C7E-6A79F236EC6E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

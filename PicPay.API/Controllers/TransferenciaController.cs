@@ -7,6 +7,7 @@ using System.Security.Claims;
 
 namespace PicPay.API.Controllers
 {
+    
     [Route("api/[controller]")]
     [ApiController]
     public class TransferenciaController : ControllerBase
@@ -60,6 +61,22 @@ namespace PicPay.API.Controllers
             }
         }
 
+        [Route("EstornoPIX")]
+        [HttpPost]
+        public async Task<IActionResult> EstornarPix(Guid idTransacao)
+        {
+            var service = await _transferenciaService.EstornarPix(idTransacao);
+
+            if (service == false)
+            {
+                return BadRequest("FALHA NO SERVIÇO DE ESTORNO");
+            }
+            else
+            {
+                return Ok("ESTORNO REALIZADO COM SUCESSO");
+            }
+
+        }
         [Authorize]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<TransferenciaModel>>> GetAllTransferencias(string? usuario)
